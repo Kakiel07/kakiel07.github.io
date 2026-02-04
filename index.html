@@ -3,355 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gabriel Alcacer | 3D Artist & Editor</title>
+    <title>Gabriel Alcacer | Blender Artist & Video Editor</title>
     <style>
         :root {
             --bg-dark: #0a0a0a;
             --bg-card: #141414;
-            --accent: #00f2ea; /* Cian eléctrico */
+            --accent: #00f2ea; 
             --text-main: #ffffff;
             --text-sec: #a0a0a0;
         }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-
+        body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg-dark); color: var(--text-main); margin: 0; line-height: 1.6; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
-        
-        /* --- HERO SECTION (PORTADA) --- */
-        .hero {
-            min-height: 90vh; /* Ocupa casi toda la pantalla */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
-            padding: 40px 20px;
-        }
-
-        .avatar {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 3px solid var(--accent);
-            object-fit: cover;
-            margin-bottom: 20px;
-            box-shadow: 0 0 20px rgba(0, 242, 234, 0.3);
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        h2 {
-            color: var(--accent);
-            font-weight: 300;
-            font-size: 1.5rem;
-            margin-top: 10px;
-            margin-bottom: 30px;
-        }
-
-        /* Botón de acción */
-        .hero-btn {
-            padding: 12px 30px;
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            border-radius: 30px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 20px;
-        }
-
-        .hero-btn:hover {
-            background: var(--accent);
-            color: black;
-            box-shadow: 0 0 15px var(--accent);
-        }
-
-        /* --- CONTENEDOR DE VIDEO --- */
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%; /* Ratio 16:9 */
-            height: 0;
-            background: black;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        /* --- VIDEO DESTACADO (SHOWREEL) --- */
-        .featured-reel {
-            width: 100%;
-            max-width: 900px;
-            margin: 30px auto;
-            border: 1px solid #333;
-            border-radius: 12px;
-            box-shadow: 0 0 40px rgba(0, 242, 234, 0.1);
-        }
-
-        /* --- SECCIÓN PORTFOLIO (GRID) --- */
-        .section {
-            padding: 60px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            border-left: 4px solid var(--accent);
-            padding-left: 15px;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Adaptable */
-            gap: 30px;
-        }
-
-        .project-card {
-            background: var(--bg-card);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            transition: transform 0.3s;
-            border: 1px solid #222;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-        }
-
-        .project-info {
-            padding: 15px;
-        }
-
-        .project-title {
-            font-size: 1.1rem;
-            color: white;
-            margin: 0;
-            font-weight: 600;
-        }
-
-        /* --- CONTACTO --- */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .contact-card {
-            background: var(--bg-card);
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            border: 1px solid #222;
-        }
-
-        .contact-card:hover {
-            border-color: var(--accent);
-            background: #1a1a1a;
-        }
-
-        .contact-icon { font-size: 2rem; margin-bottom: 10px; }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            color: #555;
-            font-size: 0.9rem;
-            border-top: 1px solid #222;
-            margin-top: 50px;
-        }
+        .hero { min-height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%); padding: 40px 20px; }
+        .avatar { width: 150px; height: 150px; border-radius: 50%; border: 3px solid var(--accent); object-fit: cover; margin-bottom: 20px; box-shadow: 0 0 20px rgba(0, 242, 234, 0.3); }
+        h1 { font-size: 3.5rem; margin: 0; text-transform: uppercase; letter-spacing: 2px; }
+        h2 { color: var(--accent); font-weight: 300; font-size: 1.5rem; margin: 30px 0; }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; background: black; border-radius: 8px; overflow: hidden; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        .featured-reel { width: 100%; max-width: 900px; margin: 0 auto; border: 1px solid #333; border-radius: 12px; }
+        .section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
+        .section-title { font-size: 2rem; border-left: 4px solid var(--accent); padding-left: 15px; margin-bottom: 40px; text-transform: uppercase; }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .project-card { background: var(--bg-card); border-radius: 12px; overflow: hidden; border: 1px solid #222; transition: 0.3s; }
+        .project-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+        .project-info { padding: 15px; }
+        .project-title { font-size: 1rem; color: white; margin: 0; font-weight: 600; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .contact-card { background: var(--bg-card); padding: 30px; border-radius: 10px; text-align: center; border: 1px solid #222; }
+        footer { text-align: center; padding: 40px; color: #555; border-top: 1px solid #222; }
     </style>
 </head>
 <body>
 
     <div class="hero">
-        <img src="foto.jpg" alt="Gabriel Alcacer" class="avatar">
+        <img src="fotoavatar.jpg" alt="Gabriel Alcacer" class="avatar">
         <h1>Gabriel Alcacer</h1>
-        <h2>Video Editor | 3D Artist</h2>
-        
+        <h2>Video Editor | Blender & 3D Artist</h2>
         <div class="featured-reel">
             <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/EVO2pxiEjrI" title="Reel de trabajos audiovisuales" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/EVO2pxiEjrI" allowfullscreen></iframe>
             </div>
         </div>
-        
-        <p style="color: #aaa; margin-top: 10px;">Showreel de trabajos audiovisuales</p>
-        <a href="#portfolio" class="hero-btn">Ver Galería Completa ↓</a>
+        <p style="color: #aaa; margin-top: 15px;">Showreel Audiovisual Principal</p>
     </div>
 
     <section id="portfolio" class="section">
-        <h3 class="section-title">Portfolio de Proyectos</h3>
-        
+        <h3 class="section-title">Trabajos Destacados</h3>
         <div class="projects-grid">
-            
             <article class="project-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/Tcq2NvWVifs" loading="lazy" allowfullscreen></iframe>
-                </div>
-                <div class="project-info"><h4 class="project-title">Personaje Rafiy (3D)</h4></div>
+                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/uCiACHimSWY" loading="lazy" allowfullscreen></iframe></div>
+                <div class="project-info"><h4 class="project-title">Nueva Animación de Personaje (Blender)</h4></div>
             </article>
-
             <article class="project-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/15GQ1AInk1g" loading="lazy" allowfullscreen></iframe>
-                </div>
-                <div class="project-info"><h4 class="project-title">Boticario Mágico</h4></div>
+                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/Tcq2NvWVifs" loading="lazy" allowfullscreen></iframe></div>
+                <div class="project-info"><h4 class="project-title">Personaje Rafiy - Animación y Modelado</h4></div>
             </article>
-
             <article class="project-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/HcPVnzmnYvk" loading="lazy" allowfullscreen></iframe>
-                </div>
-                <div class="project-info"><h4 class="project-title">Proyecto Ardilla P2Design</h4></div>
+                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/15GQ1AInk1g" loading="lazy" allowfullscreen></iframe></div>
+                <div class="project-info"><h4 class="project-title">Boticario Mágico - Escenario 3D</h4></div>
             </article>
-
             <article class="project-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/2Tv2J54HAQs" loading="lazy" allowfullscreen></iframe>
-                </div>
-                <div class="project-info"><h4 class="project-title">Pokeball 3D</h4></div>
+                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/5_K4tfFlF5Y" loading="lazy" allowfullscreen></iframe></div>
+                <div class="project-info"><h4 class="project-title">Walk Cycle - Animación en Blender</h4></div>
             </article>
-
             <article class="project-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/5_K4tfFlF5Y" loading="lazy" allowfullscreen></iframe>
-                </div>
-                <div class="project-info"><h4 class="project-title">Walk Cycle</h4></div>
+                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/3B5BMSgJtM4" loading="lazy" allowfullscreen></iframe></div>
+                <div class="project-info"><h4 class="project-title">Intro Enurse - Postproducción</h4></div>
             </article>
-
-             <article class="project-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/3B5BMSgJtM4" loading="lazy" allowfullscreen></iframe>
-                </div>
-                <div class="project-info"><h4 class="project-title">Intro Enurse</h4></div>
-            </article>
-
             <article class="project-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/xmFuLzjlRq4" loading="lazy" allowfullscreen></iframe>
-                </div>
-                <div class="project-info"><h4 class="project-title">Spot Podcasts</h4></div>
+                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/xmFuLzjlRq4" loading="lazy" allowfullscreen></iframe></div>
+                <div class="project-info"><h4 class="project-title">Spot Podcasts - Dirección Audiovisual</h4></div>
             </article>
-
-            <article class="project-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/QzMe8KvmA_c" loading="lazy" allowfullscreen></iframe>
-                </div>
-                <div class="project-info"><h4 class="project-title">Spot Fukuroshiki</h4></div>
-            </article>
-
-            <article class="project-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/isKWogRS8YA" loading="lazy" allowfullscreen></iframe>
-                </div>
-                <div class="project-info"><h4 class="project-title">Corto Fukuroshiki</h4></div>
-            </article>
-
-            <article class="project-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/cdeT5ERJuls" loading="lazy" allowfullscreen></iframe>
-                </div>
-                <div class="project-info"><h4 class="project-title">Cortometraje Prisma</h4></div>
-            </article>
-
-            <article class="project-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/Nqtarcxlab0" loading="lazy" allowfullscreen></iframe>
-                </div>
-                <div class="project-info"><h4 class="project-title">Ilargi (Proyecto Final)</h4></div>
-            </article>
-
-            <article class="project-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/TZyzKlshG2k" loading="lazy" allowfullscreen></iframe>
-                </div>
-                <div class="project-info"><h4 class="project-title">Promo ED Hygeia Capitol</h4></div>
-            </article>
-
-            <article class="project-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/drPXmFJPXVE" loading="lazy" allowfullscreen></iframe>
-                </div>
-                <div class="project-info"><h4 class="project-title">Promo Hygeia Entradas</h4></div>
-            </article>
-
-            <article class="project-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/L9e-FeBScKc" loading="lazy" allowfullscreen></iframe>
-                </div>
-                <div class="project-info"><h4 class="project-title">Promo General</h4></div>
-            </article>
-
-            <article class="project-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/nuzDcPshbuo" loading="lazy" allowfullscreen></iframe>
-                </div>
-                <div class="project-info"><h4 class="project-title">RUM</h4></div>
-            </article>
-
         </div>
     </section>
 
     <section class="section">
         <h3 class="section-title">Sobre Mí</h3>
-        <p style="color: #a0a0a0; font-size: 1.1rem; max-width: 800px;">
-            ¡Hola! Soy Gabriel, un Editor de Vídeo y Artista 3D. 
-            Mi perfil híbrido combina la narrativa cinematográfica con un profundo conocimiento técnico del pipeline 3D.
-            Me especializo en modelado de personajes, creación de entornos y optimización de assets, asegurando siempre la mejor calidad técnica y artística.
+        <p style="color: #a0a0a0; font-size: 1.1rem; max-width: 900px;">
+            Editor de Vídeo y Artista 3D con más de 5 años de trayectoria profesional. Mi valor diferencial es el uso de la narrativa cinematográfica aplicada al modelado y la animación en Blender. Me especializo en crear contenido visual que no solo destaca técnicamente, sino que cuenta una historia, aprovechando mi sólida base en postproducción y mi formación avanzada en creación de personajes.
         </p>
     </section>
 
     <section class="section">
         <h3 class="section-title">Contacto</h3>
         <div class="contact-grid">
-            <a href="mailto:arceogabriel07@gmail.com" class="contact-card">
-                <div class="contact-icon">✉️</div>
-                <h4>Email</h4>
-                <p>arceogabriel07@gmail.com</p>
-            </a>
-            
-            <a href="https://www.linkedin.com/in/gabriel-alejandro-alcacer-390a018b" target="_blank" class="contact-card">
-                <div class="contact-icon">🔗</div>
-                <h4>LinkedIn</h4>
-                <p>Ver Perfil</p>
-            </a>
-
-            <a href="cv_gabriel.pdf" download class="contact-card">
-                <div class="contact-icon">📄</div>
-                <h4>Descargar CV</h4>
-                <p>Formato PDF</p>
-            </a>
+            <a href="mailto:arceogabriel07@gmail.com" class="contact-card"><div>✉️</div><h4>Email</h4><p>arceogabriel07@gmail.com</p></a>
+            <a href="https://www.linkedin.com/in/gabriel-alejandro-alcacer-390a018b" target="_blank" class="contact-card"><div>🔗</div><h4>LinkedIn</h4><p>Ver Perfil</p></a>
+            <a href="cv_gabriel.pdf" download class="contact-card"><div>📄</div><h4>Descargar CV</h4><p>Formato PDF</p></a>
         </div>
     </section>
 
-    <footer>
-        © 2025 Gabriel Alcacer - Portfolio Profesional
-    </footer>
+    <footer>© 2026 Gabriel Alcacer - Video Editor & Blender Artist</footer>
 
 </body>
 </html>
